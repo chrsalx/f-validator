@@ -1,6 +1,6 @@
 {
   "name": "f-validators",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Toolkit of validation functions easy to compose into bigger validators.",
   "main": "index.js",
   "scripts": {
