@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepublish": "npm test && ./node_modules/.bin/babel validators.es6.js --out-file index.js",
+    "postpublish": "git push",
     "test": "node tests.es6.js"
   },
   "repository": {
