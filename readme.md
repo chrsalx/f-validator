@@ -2,15 +2,16 @@
 
 Toolkit of validation functions easy to compose into bigger validators.
 
-```js
-const validators = require('f-validator');
-```
 ## Installation
 ```
 npm i -S f-validator
 ```
 
 ## Usage
+
+```js
+const validators = require('f-validators');
+```
 
 ### Simple Validation
 ```js
@@ -27,10 +28,10 @@ validators.isOk(true) // => true;
 
 ### Validator Composition
 
-f-validator provides the functions `and`, `or` and `not` to easily compose validators into bigger more precise ones.
+f-validators provides the functions `and`, `or` and `not` to easily compose validators into bigger and more precise ones.
 
 ```js
-const {or, not, isNull, isUndefined} = require('f-validator');
+const {or, not, isNull, isUndefined} = require('f-validators');
 const isNotNull = not(isNull);
 const isNotUndefined = not(isUndefined);
 const isNotNullOrUndefined = or(isNotNull, isNotUndefined);
@@ -51,6 +52,20 @@ is5000(200) // => false
 is5000(5000) // => true
 ```
 
+## Object Validation
+
+Stack your validations to easily build object validation.
+
+```js
+const validateFieldA = ({ a }) => isNumber(a);
+const validateFieldB = ({ b }) => isString(b);
+
+const myObectValidator = and(validateFieldA, validateFieldB);
+
+myObectValidator({a: 5, b: '5'}) // =>  true;
+myObectValidator({a: 5, b: true}) // =>  false;
+```
+
 ## Functions
 
 Whole lotta them!
@@ -58,7 +73,7 @@ Whole lotta them!
 ### or
 Returns a function that passes an argument to all given functions. Will only return
 false if all functions return false.
-```
+```js
 or(...functions) => function
 
 const isStringOrNumber = or(isString, isNumber)
@@ -77,12 +92,36 @@ const isNot5 = not(is5);
 isNot5(5) //=> false
 ```
 
+### and
+Returns a function that reverts the result of a given function.
+```js
+and(...fn) => functions
+
+const hasLengthOf5 = v => hasLengthOf(5, v);
+const isStringAndHasLengthOf5 = and(isString, hasLengthOf5);
+isStringAndHasLengthOf5('12345') // => true
+```
+
+### isEqual
+Simple comparison of two objects using the `===` operator.
+```js
+isEqual(first, second) => boolean
+
+isEqual(5, 3) // => false
+```
+
+### isInstanceOf
+Instance check using the `instanceof` operator.
+
+```js
+isInstanceOf(constructor, instance) => boolean
+
+const date = new Date();
+isInstanceOf(Date, date) // => true
+```
 
 pending for docs...
 
-`and(...functions)`
-`isEqual(first, second)`
-`isInstanceOf(constructor, instance)`
 `isMatch(expression, string)`
 `isOk(truthy)`
 `isTypeOf(type, object)`
