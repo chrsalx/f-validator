@@ -1,0 +1,37 @@
+{
+  "name": "f-validators",
+  "version": "0.0.1",
+  "description": "Toolkit of validation functions easy to compose into bigger validators.",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "npm test && ./node_modules/.bin/babel validators.es6.js --out-file index.js",
+    "postpublish": "git add . && git commit -m \"postpublish commit.\" && git push",
+    "test": "node tests.es6.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrsalx/f-validator.git"
+  },
+  "keywords": [
+    "validation",
+    "functional",
+    "functiona",
+    "validation"
+  ],
+  "author": "polancochristian@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrsalx/f-validator/issues"
+  },
+  "homepage": "https://github.com/chrsalx/f-validator#readme",
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-preset-env": "^1.1.8",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "tape": "^4.6.3"
+  }
+}
