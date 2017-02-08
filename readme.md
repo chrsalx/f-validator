@@ -51,22 +51,46 @@ is5000(200) // => false
 is5000(5000) // => true
 ```
 
-### Functions
+## Functions
 
 Whole lotta them!
-### or(...functions)
-### not(...functions)
-### and(...functions)
-### isEqual(first, second)
-### isInstanceOf(constructor, instance)
-### isMatch(expression, string)
-### isOk(truthy)
-### isTypeOf(type, object)
-### isUndefined(object)
-### isNull(object)
-### hasLengthOf(iterable, length)
-### isString(string)
-### isNumber(number)
-### isBoolean(boolean)
-### isObject(object)
-### isDate(date)
+
+### or
+Returns a function that passes an argument to all given functions. Will only return
+false if all functions return false.
+```
+or(...functions) => function
+
+const isStringOrNumber = or(isString, isNumber)
+isStringOrNumber(123) // => true,
+isStringOrNumber('123') // => true,
+isStringOrNumber(true) // => false,
+```
+
+### not
+Returns a function that reverts the result of a given function.
+```js
+not(fn) => function
+
+const is5 = v => isEqual(5, v);
+const isNot5 = not(is5);
+isNot5(5) //=> false
+```
+
+
+pending for docs...
+
+`and(...functions)`
+`isEqual(first, second)`
+`isInstanceOf(constructor, instance)`
+`isMatch(expression, string)`
+`isOk(truthy)`
+`isTypeOf(type, object)`
+`isUndefined(object)`
+`isNull(object)`
+`hasLengthOf(iterable, length)`
+`isString(string)`
+`isNumber(number)`
+`isBoolean(boolean)`
+`isObject(object)`
+`isDate(date)`
