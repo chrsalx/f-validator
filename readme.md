@@ -51,22 +51,22 @@ is5000(200) // => false
 is5000(5000) // => true
 ```
 
-### functions
+### Functions
 
 Whole lotta them!
-#### or(...functions)
-#### not(...functions)
-#### and(...functions)
-#### isEqual(first, second)
-#### isInstanceOf(constructor, instance)
-#### isMatch(expression, string)
-#### isOk(truthy)
-#### isTypeOf(type, object)
-#### isUndefined(object)
-#### isNull(object)
-#### hasLengthOf(iterable, length)
-#### isString(string)
-#### isNumber(number)
-#### isBoolean(boolean)
-#### isObject(object)
-#### isDate(date)
+### or(...functions)
+### not(...functions)
+### and(...functions)
+### isEqual(first, second)
+### isInstanceOf(constructor, instance)
+### isMatch(expression, string)
+### isOk(truthy)
+### isTypeOf(type, object)
+### isUndefined(object)
+### isNull(object)
+### hasLengthOf(iterable, length)
+### isString(string)
+### isNumber(number)
+### isBoolean(boolean)
+### isObject(object)
+### isDate(date)
