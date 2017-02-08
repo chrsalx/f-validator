@@ -1,4 +1,4 @@
-# f-validator
+# f-validators
 
 Toolkit of validation functions easy to compose into bigger validators.
 
